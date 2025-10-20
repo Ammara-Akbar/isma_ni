@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:isma_ni/screens/auth_screens/verify_number_screen.dart';
 import 'package:isma_ni/utils/colors.dart';
 import 'package:isma_ni/utils/my_images.dart';
 import 'package:isma_ni/language/app_localization.dart';
@@ -190,7 +191,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     onPressed: () {
-                      // TODO: Add login logic
+                       Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => VerifyNumberScreen()),
+      );
                     },
                     child: Text(
                       translate("login"),
