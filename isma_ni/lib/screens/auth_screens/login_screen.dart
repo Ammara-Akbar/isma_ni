@@ -70,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   translate("phone_number"),
                   style: const TextStyle(
                     fontSize: 14,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -119,7 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   translate("password"),
                   style: const TextStyle(
                     fontSize: 14,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -191,10 +191,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     onPressed: () {
-                       Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => VerifyNumberScreen()),
-      );
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (_) => VerifyNumberScreen()),
+                      );
                     },
                     child: Text(
                       translate("login"),
