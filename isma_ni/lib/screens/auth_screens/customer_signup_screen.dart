@@ -177,7 +177,7 @@ class _CustomerSignupScreenState extends State<CustomerSignupScreen> {
                             cursorColor: AppColors.primaryColor,
                             decoration: InputDecoration(
                               hintText:
-                                  translate("phone_hint") ?? "85255454",
+                                  translate("phone_hint") ,
                               hintStyle:
                                    TextStyle(color: Colors.grey.shade400),
                               border: InputBorder.none,
@@ -194,7 +194,7 @@ class _CustomerSignupScreenState extends State<CustomerSignupScreen> {
 
                   // 🔹 Password
                   Text(
-                    translate("password") ?? "Password",
+                    translate("password"),
                     style: const TextStyle(
                         fontSize: 14, fontWeight: FontWeight.w500),
                   ),
@@ -205,7 +205,7 @@ class _CustomerSignupScreenState extends State<CustomerSignupScreen> {
                     cursorColor: AppColors.primaryColor,
                     decoration: InputDecoration(
                       hintStyle: TextStyle(color: Colors.grey.shade400),
-                      hintText: translate("password_hint") ?? "********",
+                      hintText: translate("password_hint") ,
                       suffixIcon: IconButton(
                         icon: Image.asset(
                           _isPasswordVisible
@@ -242,7 +242,7 @@ class _CustomerSignupScreenState extends State<CustomerSignupScreen> {
 
                   // 🔹 Confirm Password
                   Text(
-                    translate("confirm_password") ?? "Confirm Password",
+                    translate("confirm_password") ,
                     style: const TextStyle(
                         fontSize: 14, fontWeight: FontWeight.w500),
                   ),
@@ -255,7 +255,7 @@ class _CustomerSignupScreenState extends State<CustomerSignupScreen> {
                       hintStyle: TextStyle(color: Colors.grey.shade400),
 
                       hintText:
-                          translate("confirm_password_hint") ?? "********",
+                          translate("confirm_password_hint") ,
                       suffixIcon: IconButton(
                         icon: Image.asset(
                           _isConfirmPasswordVisible
@@ -326,7 +326,7 @@ class _CustomerSignupScreenState extends State<CustomerSignupScreen> {
                       ),
                       const SizedBox(width: 10),
                       Text(
-                        translate("i_agree_to") ?? "I agree to ",
+                        translate("i_agree_to"),
                         style: const TextStyle(
                             fontSize: 14, color: Colors.black87),
                       ),
@@ -335,8 +335,8 @@ class _CustomerSignupScreenState extends State<CustomerSignupScreen> {
                           // TODO: Navigate to terms page
                         },
                         child: Text(
-                          translate("terms_conditions") ??
-                              "Terms & Conditions",
+                          translate("terms_conditions") 
+                              ,
                           style: const TextStyle(
                             color: AppColors.cyanClr,
                             fontSize: 14,
@@ -364,7 +364,7 @@ class _CustomerSignupScreenState extends State<CustomerSignupScreen> {
                         // TODO: Add Signup logic
                       },
                       child: Text(
-                        translate("sign_up") ?? "Sign Up",
+                        translate("sign_up") ,
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,

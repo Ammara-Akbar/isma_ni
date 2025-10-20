@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:isma_ni/screens/auth_screens/choose_account_screen.dart';
+import 'package:isma_ni/screens/auth_screens/under_review_screen.dart';
 import 'package:isma_ni/utils/colors.dart';
 import 'package:isma_ni/language/app_localization.dart';
 
@@ -25,13 +26,32 @@ class _ServiceProviderSignupScreenState
   bool _agreeTerms = false;
   String? _selectedCategory;
 
-  final List<String> _categories = [
-    "Plumber",
-    "Electrician",
-    "Cleaner",
-    "Mechanic",
-    "Technician"
-  ];
+late List<String> _categories;
+
+@override
+void didChangeDependencies() {
+  super.didChangeDependencies();
+  final translate = AppLocalizations.of(context)!.translate;
+  final locale = Localizations.localeOf(context).languageCode;
+
+  if (locale == 'ar') {
+    _categories = [
+      translate("plumber") ,
+      translate("electrician") ?? "كهربائي",
+      translate("cleaner") ?? "عامل نظافة",
+      translate("mechanic") ?? "ميكانيكي",
+      translate("technician") ?? "فني",
+    ];
+  } else {
+    _categories = [
+      translate("plumber") ?? "Plumber",
+      translate("electrician") ?? "Electrician",
+      translate("cleaner") ?? "Cleaner",
+      translate("mechanic") ?? "Mechanic",
+      translate("technician") ?? "Technician",
+    ];
+  }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -93,45 +113,45 @@ class _ServiceProviderSignupScreenState
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _label(translate("full_name") ?? "Full Name"),
+                  _label(translate("full_name")),
                   _inputField(_fullNameController,
-                      hint: translate("full_name_hint") ?? "Imran Ali"),
+                      hint: translate("full_name_hint") ),
                   const SizedBox(height: 18),
 
-                  _label(translate("email") ?? "Email"),
+                  _label(translate("email") ),
                   _inputField(_emailController,
-                      hint: translate("email_hint") ?? "ia77663@gmail.com",
+                      hint: translate("email_hint") ,
                       keyboard: TextInputType.emailAddress),
                   const SizedBox(height: 18),
 
-                  _label(translate("phone_number") ?? "Phone Number"),
+                  _label(translate("phone_number")),
                     SizedBox(height: 
                   7,),
                   _phoneField(),
                   const SizedBox(height: 18),
 
-                  _label(translate("service_category") ?? "Service category"),
+                  _label(translate("service_category")),
                   SizedBox(height: 
                   7,),
                   _dropdown(),
                   const SizedBox(height: 18),
 
-                  _label(translate("years_experience") ?? "Years of experience"),
+                  _label(translate("years_experience") ),
                   _inputField(_yearsController,
-                      hint: translate("enter_years_experience") ??
-                          "Enter Years of experience",
+                      hint: translate("enter_years_experience") ,
+                          
                       keyboard: TextInputType.number),
                   const SizedBox(height: 18),
 
-                  _label(translate("upload_id") ?? "Upload ID / License"),
+                  _label(translate("upload_id") ),
                     SizedBox(height: 
                   7,),
-                  _uploadBox(translate("front_side") ?? "Front Side"),
+                  _uploadBox(translate("front_side") ),
                   const SizedBox(height: 12),
-                  _uploadBox(translate("back_side") ?? "Back Side"),
+                  _uploadBox(translate("back_side") ),
                   const SizedBox(height: 18),
 
-                  _label(translate("password") ?? "Password"),
+                  _label(translate("password") ),
                     SizedBox(height: 
                   7,),
                   _passwordField(
@@ -205,10 +225,15 @@ class _ServiceProviderSignupScreenState
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8)),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                         Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (_) => UnderReviewScreen()),
+                      );
+                      },
                       child: Text(
-                        translate("create_provider_account") ??
-                            "Create Provider Account",
+                        translate("create_provider_account") 
+                           ,
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
@@ -288,7 +313,10 @@ class _ServiceProviderSignupScreenState
         ),
       );
 
-  Widget _dropdown() => Container(
+  Widget _dropdown() {
+     final translate = AppLocalizations.of(context)!.translate;
+    return
+    Container(
         padding: const EdgeInsets.symmetric(horizontal: 12),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
@@ -297,8 +325,10 @@ class _ServiceProviderSignupScreenState
         child: DropdownButtonHideUnderline(
           child: DropdownButton<String>(
             value: _selectedCategory,
-            hint:  Text("Choose category",
-                style: TextStyle(color: Colors.grey.shade400)),
+            hint: Text(
+          translate("choose_category"),
+          style: TextStyle(color: Colors.grey.shade400),
+        ),
             isExpanded: true,
             icon: const Icon(Icons.keyboard_arrow_down_rounded,
                 color: Colors.black54),
@@ -308,7 +338,7 @@ class _ServiceProviderSignupScreenState
             onChanged: (val) => setState(() => _selectedCategory = val),
           ),
         ),
-      );
+  );}
 
   Widget _uploadBox(String label) => Container(
         height: 100,

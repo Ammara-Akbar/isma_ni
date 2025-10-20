@@ -39,5 +39,12 @@
   "confirm_password": "Confirm Password",
   "i_agree_to": "I agree to ",
   "terms_conditions": "Terms & Conditions",
-  "create_provider_account": "Create Provider Account"
+  "create_provider_account": "Create Provider Account",
+   "plumber": "Plumber",
+  "electrician": "Electrician",
+  "cleaner": "Cleaner",
+  "mechanic": "Mechanic",
+  "technician": "Technician",
+  "under_review": "Under Review",
+  "review_message": "Your account will be reviewed and published once verified."
 }

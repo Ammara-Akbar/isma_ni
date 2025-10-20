@@ -38,5 +38,12 @@
   "front_side": "الجانب الأمامي",
   "back_side": "الجانب الخلفي",
   
-  "create_provider_account": "إنشاء حساب مقدم خدمة"
+  "create_provider_account": "إنشاء حساب مقدم خدمة",
+  "plumber": "سباك",
+  "electrician": "كهربائي",
+  "cleaner": "عامل نظافة",
+  "mechanic": "ميكانيكي",
+  "technician": "فني",
+   "under_review": "قيد المراجعة",
+  "review_message": "سيتم مراجعة حسابك ونشره بمجرد التحقق منه."
 }
